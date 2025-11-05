@@ -292,38 +292,4 @@ const handleRegister = async () => {
 /* Importar CSS originales */
 @import '/css/nicepage.css';
 @import '/css/Registro.css';
-
-.error-message {
-  color: #ff4757;
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #ffe0e0;
-  border-radius: 5px;
-  border: 1px solid #ffcdd2;
-}
-
-.login-helper {
-  text-align: center;
-  margin-top: 20px;
-  color: #666;
-}
-
-.login-link {
-  color: #1e40af;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.login-link:hover {
-  text-decoration: underline;
-}
-
-/* Ajustes para el logo */
-.logo-sistema {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-}
 </style>

@@ -151,14 +151,4 @@ onMounted(() => {
 /* Importar CSS originales */
 @import '/css/nicepage.css';
 @import '/css/login.css';
-
-.error-message {
-  color: #ff4757;
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: #ffe0e0;
-  border-radius: 5px;
-  border: 1px solid #ffcdd2;
-}
 </style>

@@ -4,9 +4,9 @@ import { authService } from '@/services';
 
 // Importar vistas
 import Login from '@/views/Login.vue';
-import Register from '@/views/Register.vue';
-import Dashboard from '@/views/Dashboard.vue';
-import ProductList from '@/views/ProductList.vue';
+import Register from '@/views/Registro.vue';
+import Dashboard from '@/views/MenuPrincipal.vue';
+import ProductList from '@/views/Lista-de-Repuestos.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -40,19 +40,19 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/productos/nuevo',
     name: 'ProductCreate',
-    component: () => import('@/views/ProductForm.vue'),
+    component: () => import('@/views/Agregar-Modificar-Repuesto.vue'),
     meta: { requiresAuth: true, requiredPermission: 'crear_producto' }
   },
   {
     path: '/productos/:id',
     name: 'ProductDetail',
-    component: () => import('@/views/ProductDetail.vue'),
+    component: () => import('@/views/Informacion-Repuesto.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/productos/:id/editar',
     name: 'ProductEdit',
-    component: () => import('@/views/ProductForm.vue'),
+    component: () => import('@/views/Agregar-Modificar-Repuesto.vue'),
     meta: { requiresAuth: true, requiredPermission: 'editar_producto' }
   },
   // Comentadas temporalmente hasta crear los componentes
@@ -66,19 +66,19 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/ventas',
     name: 'VentaList',
-    component: () => import('@/views/VentaList.vue'),
+    component: () => import('@/views/Lista-Ventas.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/ventas/nueva',
     name: 'VentaCreate',
-    component: () => import('@/views/VentaForm.vue'),
+    component: () => import('@/views/Registrar-Venta.vue'),
     meta: { requiresAuth: true, requiredPermission: 'crear_venta' }
   },
   {
     path: '/ventas/:id',
     name: 'VentaDetail',
-    component: () => import('@/views/VentaDetail.vue'),
+    component: () => import('@/views/Detalle-Venta.vue'),
     meta: { requiresAuth: true }
   },
   /*
@@ -104,6 +104,9 @@ const router = createRouter({
 
 // Guard de autenticación global
 router.beforeEach((to, _from, next) => {
+  // TEMPORAL: Deshabilitar autenticación para desarrollo
+  // Comentar esta sección para habilitar autenticación
+  //Cuando se quiera comentar para deshabilitar es desde acá
   const isAuthenticated = authService.isAuthenticated();
   const requiresAuth = to.meta.requiresAuth;
   const hideForAuth = to.meta.hideForAuth;
@@ -135,7 +138,7 @@ router.beforeEach((to, _from, next) => {
     next('/dashboard');
     return;
   }
-
+//Hasta acá
   next();
 });
 

@@ -122,22 +122,6 @@ const handleLogout = async () => {
   }
 };
 
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('es-AR');
-};
-
-const formatCurrency = (amount: number) => {
-  return new Intl.NumberFormat('es-AR', {
-    style: 'currency',
-    currency: 'ARS'
-  }).format(amount);
-};
-
-const openCalculadora = () => {
-  // Implementar calculadora de precios
-  console.log('Abrir calculadora de precios');
-};
-
 // Lifecycle
 onMounted(() => {
   currentUser.value = authService.getCurrentUser();
@@ -149,91 +133,4 @@ onMounted(() => {
 /* Importar CSS originales */
 @import '/css/nicepage.css';
 @import '/css/MenuPrincipal.css';
-
-/* Estilos adicionales para el dashboard */
-.user-welcome {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-align: right;
-  color: white;
-  z-index: 10;
-}
-
-.user-welcome h2 {
-  margin: 0 0 10px 0;
-  font-size: 1.2rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-.logout-btn {
-  background: #ff4757;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.3s ease;
-}
-
-.logout-btn:hover {
-  background: #ff3838;
-}
-
-/* Estadísticas opcionales */
-.stats-section {
-  background: #f5f7fa;
-  padding: 40px 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.stat-card {
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.stat-icon {
-  font-size: 2.5rem;
-  background: #f0f9ff;
-  padding: 15px;
-  border-radius: 12px;
-}
-
-.stat-content h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #1e40af;
-  margin: 0;
-}
-
-.stat-content p {
-  color: #6b7280;
-  margin: 5px 0 0 0;
-}
-
-@media (max-width: 768px) {
-  .user-welcome {
-    position: static;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-}
 </style>
